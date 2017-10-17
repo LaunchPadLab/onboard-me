@@ -96,11 +96,11 @@ we can pass in props!
 *Rendering From A View*
 
 ```erb
-	<%= react_component('Hello', name: 'React') %>
+<%= react_component('Hello', name: 'React') %>
 ```
 *with html element*
 ```erb
-	<%= react_component('Hello', { name: 'React' }, tag: :span, class: 'my-custom-component') %>
+<%= react_component('Hello', { name: 'React' }, tag: :span, class: 'my-custom-component') %>
 ```
 *will render*
 ```html
