@@ -16,7 +16,7 @@
   - [Self-guided Learning](#self-guided-learning)
   - [Pairing During the Week](#pairing-during-the-week)
   - [Site Profile](#site-profile)
-  - [SPACE](#space)
+  - [SPACE & Demo Day](#space--demo-day)
   - [Getting Naked](#getting-naked) (it's not what it sounds like, we promise!)
   - [Lunch and Learn](#lunch-and-learn)
   - [Blog Posts](#blog-posts)
