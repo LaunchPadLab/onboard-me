@@ -22,7 +22,7 @@ $ rails webpacker:install:react
 ```
 
 This includes and bundles [Webpacker](https://github.com/rails/webpacker) in
-our gemfile, which then runs the Webpack setup and React installation. 
+our gemfile, which then runs the Webpack setup and React installation.
 In addition, the generator provides a "Hello World" React component.
 
 ```
@@ -96,11 +96,11 @@ we can pass in props!
 *Rendering From A View*
 
 ```erb
-	<%= react_component('Hello', name: 'React') %>
+<%= react_component('Hello', name: 'React') %>
 ```
 *with html element*
 ```erb
-	<%= react_component('Hello', { name: 'React' }, tag: :span, class: 'my-custom-component') %>
+<%= react_component('Hello', { name: 'React' }, tag: :span, class: 'my-custom-component') %>
 ```
 *will render*
 ```html
@@ -204,7 +204,7 @@ In *views/pages/home.html.erb*
 	<%= react_component('Hello', name: 'a component rendered from a view') %>
 ```
 
-## Disclaimer 
+## Disclaimer
 
 This is most basic React setup possible in Rails 5.1, and does not include the setup requirements of `lp-components`, `redux-form`, or `lp-redux-api`.
 
