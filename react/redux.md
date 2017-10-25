@@ -1,7 +1,7 @@
 
 # Redux
 
-In this section we're going to walk through Redux, the framework we use to manage state within our React Apps.
+In this section we're going to walk through Redux, the library we use to manage state within our React apps.
 
 **State**
 
@@ -36,7 +36,7 @@ The basic elements of the Redux Framework you will need to familiarize yourself 
 - *Store* - Contains the application's state
 - *Actions* - Simple JS objects that send data from your application to your store
 - *Reducer* - Pure JS functions that determine how the state is affected by an action
-- *Middleware* - Middleman between the actions and the reducer to determine if the action should be modified or canceled before reachig the reducer
+- *Middleware* - Middleman between the actions and the reducer to determine if the action should be modified or canceled before reaching the reducer
 
 **Store**
 
@@ -94,7 +94,7 @@ const ADD_TODO = {
 
 There are few ways set up your actions in React apps, but at LPL we make use of the `createAction` function in the `redux-actions` package to define the actions.
 
-We then combine this with `effects` to be able to add some routing. Effects functions are responsible for sending and fetching data to or from an API. More on connecting to an API and routing later, but in general, our `todo/actions.js` might look like this:
+We then combine this with `effects` to be able to connect to our APIs. Effects functions are responsible for sending and fetching data to or from an API. There will be more on making these requests later, but in general, our `todo/actions.js` might look like this:
 
 ```JSX
 import { createAction } from 'redux-actions'
@@ -107,7 +107,7 @@ export const destroyItem = createAction('DESTROY_ITEM')
 With a root-level `effects.js` like this:
 
 ```JSX
-import { api } from './api' // this includes logic around the middleware when making api calls with our actions
+import { api } from './api' // this includes logic around the middleware when making API calls with our actions
 
 export function createItem ({ text }) {
   return api.post('/todos', { todo: { text, completed: false } })
@@ -136,13 +136,13 @@ import { middleware as apiMiddleware } from './api'
 // new imports
 import { routerReducer } from 'react-router-redux' // special reducer provided by react-router-redux
 import { reducer as formReducer } from 'redux-form' // special reducer provided by redux-form
-import { reducer as apiReducer } from '@launchpadlab/lp-redux-api' // special reducer created internall
+import { reducer as apiReducer } from '@launchpadlab/lp-redux-api' // special reducer created internally
 import { reducer as rootReducer, reducerKey as rootKey } from './reducer'
 
 function initializeStore () {
   /*
    * Combine the reducers into one that Redux can handle. The keys below are
-   * important as data in the store will be namespaced them and each reducer
+   * important as data in the store will be namespaced and each reducer
    * only receives the slice of state according to the key.
    */
   const reducer = combineReducers({
@@ -234,7 +234,6 @@ const reducer = handleActions({
 export { reducer, reducerKey }
 ```
 
-
 The key code to note here is that the reducer will look at the action given to it (using `dispatch` on store, which we will get to shortly), take the current state, and return a NEW state based on action.
 
 If you look closely, you will also note that the reducer isn't returning the entire state back, it's only returning the *slice* that changed.
@@ -282,15 +281,16 @@ export default compose(
 
 **Summary**
 
-Phew! This was a long one. There are a lot of moving pieces, but the main takeways are understanding how Redux utilizes the `store`, `actions`, and `reducer` to manage the state of your app, and familiarizing yourself with how we implement these elements at LPL.
+Phew! This was a long one. There are a lot of moving pieces, but the main takeaways are understanding how Redux utilizes the `store`, `actions`, and `reducers` to manage the state of your app, and familiarizing yourself with how we implement these elements at LPL.
 
-Remember, the `store` is the container for your `state`, which is an immutable Javascript object with all of your data. State never changes, but you can update the store to reflect changes to your data.
+Remember, the `store` is the container for your `state`, which is an immutable JavaScript object with all of your data. State never changes, but you can update the store to reflect changes to your data.
 
-Your store is updated by dispatching `actions` and `effects` that send data to your `reducers` through API calls. The `reducer` then decides how to update the store, by returning a *new* state based on the dispatched action.
+You can update the store through a series of steps. First, `effects` are used to initiate API requests to modify data in some way. When the effect is successful, `actions` are dispatched to deliver the resulting payload to the reducers. The `reducer` then decides how to update the store, by returning a *new* state based on the dispatched action.
 
-You can read more about each of these elements in their respective guides.
-<!-- add link to the each guide in that area, e.g., actions, reducer, effects, etc. -->
-
+You can read more about each of these elements in their respective guides:
+- [effects](./effects)
+- [actions](./actions)
+- [reducer](./reducer)
 
 Contributors
 -

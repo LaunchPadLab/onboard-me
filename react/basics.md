@@ -1,6 +1,6 @@
 <!-- TODO:
 
-- [ ] Include links to relevant documentation for more robust explinations on topics.
+- [ ] Include links to relevant documentation for more robust explanations on topics.
 
 -->
 
@@ -33,7 +33,7 @@ Predictability in functional programming is typically achieved by writing functi
 
  - Immutable (does not mutate data, or alter global state)
  - Uniform (does one thing really well, always)
- - Short (ledgible, concise, and well named)
+ - Short (legible, concise, and well named)
 
 You might be thinking - "Hey, React is supposed to update state!" - and you'd be correct. To achieve our FP goals while updating state, we'll send messages to Redux, which will take care of updating state for us.
 
@@ -42,12 +42,12 @@ This means we never have to write functions that mutate data, or directly update
 Ultimately we feel this approach achieves a few things really well:
 
  - Allows quick and flexible product growth
- - Midigates exception errors in production
+ - Mitigates exception errors in production
  - Reusable components without side-effects
 
 Note:
 
-  Even if you've been writing Javascript for a while, doing so in a functional programming style will introduce a learning curve. If you've never done ANY functional programming before, this curve can be quite steep.
+  Even if you've been writing JavaScript for a while, doing so in a functional programming style will introduce a learning curve. If you've never done ANY functional programming before, this curve can be quite steep.
 
   Fear not! We are here to help. It's important to give your mind time to adjust and to not be too hard on yourself. Functional programming can be abstract and quite challenging, but at the end of the day we feel it's worth the squeeze.
 
@@ -66,7 +66,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 ```
 
-Depending on what type of component you're building, you many need to import additional packages. For now `react` and `prop-types` represent the bare minimum you'll need to get started with your first React component. We'll be adding more packages as we work through the component lifecycle.
+Depending on what type of component you're building, you many need to import additional packages. For now `react` and `prop-types` represent the bare minimum you'll need to get started with your first React component. We'll be adding more packages as we add complexity to our components.
 
 ## PropTypes
 
@@ -154,7 +154,7 @@ return (
 )
 ```
 
-This is called `JSX`. Simply put `JSX` is sytax extension to Javascript which helps describe what our UI should look like and render React elements.
+This is called `JSX`. Simply put `JSX` is sytax extension to JavaScript which helps describe what our UI should look like and render React elements.
 
 The example above is describing a `h1` element, with some text of "Hello World!". In our browser, this will produce a `h1` element which wraps the text specified.
 
@@ -237,7 +237,7 @@ Person.propTypes = propTypes
 
 ## Export Default
 
-Lastly, we need to export this component and make it availble for import in other sections of our application.
+Lastly, we need to export this component and make it available for import in other sections of our application.
 
 ```javascript
 // person.js
@@ -285,8 +285,8 @@ export default Person
 
   You might be thinking, "This is a pretty basic component..." and you'd be correct. Currently, the only way to change what this component renders is to alter the `default_props` object or pass it new props on render.
 
-  There is also no way for the component to change the state - i.e., stored information - of the application. This means we've succeeded in isolating this component to do only one job: take in data and output that data in a predictable manner.
+  There is also no way for the component to change the state - i.e., stored information - of the application. This means we've succeeded in isolating this component to do only one job: take in data and render that data in a predictable manner.
 
 # Next Steps
 
-  In the next [section](./redux), we'll cover how to implement `react-redux`, request data from our backend API, and update state in our React application.
+  In the next [section](./redux), we'll cover how to use `react-redux`, request data from our backend API, and update state in our React application.
